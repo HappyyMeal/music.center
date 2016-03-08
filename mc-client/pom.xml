@@ -11,6 +11,10 @@
 	<packaging>war</packaging>
 
 	<dependencies>
-
+		<dependency>
+			<groupId>com.bsuir</groupId>
+			<artifactId>mc-domain</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>
