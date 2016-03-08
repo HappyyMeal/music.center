@@ -21,7 +21,7 @@ public class UserDaoImpl implements IUserDao {
 	private UserDaoImpl() {
 	}
 
-	public String create(User entity) throws DaoException {
+	public String create(User user) throws DaoException {
 		Session session = null;
 		Transaction transaction = null;
 		String login = null;
@@ -30,7 +30,7 @@ public class UserDaoImpl implements IUserDao {
 			session = HibernateUtil.currentSession();
 			transaction = session.beginTransaction();
 
-			login = (String) session.save(entity);
+			login = (String) session.save(user);
 			transaction.commit();
 		} catch (HibernateException e) {
 			if (transaction != null)
@@ -44,7 +44,7 @@ public class UserDaoImpl implements IUserDao {
 		return login;
 	}
 
-	public User read(String entityId) throws DaoException {
+	public User read(String username) throws DaoException {
 		Session session = null;
 		Transaction transaction = null;
 		User user = null;
@@ -53,7 +53,7 @@ public class UserDaoImpl implements IUserDao {
 			session = HibernateUtil.currentSession();
 			transaction = session.beginTransaction();
 
-			user = (User) session.get(User.class, entityId);
+			user = (User) session.get(User.class, username);
 			transaction.commit();
 		} catch (HibernateException e) {
 			if (transaction != null)
@@ -113,7 +113,7 @@ public class UserDaoImpl implements IUserDao {
 
 	}
 
-	public void delete(String login) throws DaoException {
+	public void delete(String username) throws DaoException {
 		Session session = null;
 		Transaction transaction = null;
 		User user = null;
@@ -121,7 +121,7 @@ public class UserDaoImpl implements IUserDao {
 		try {
 			session = HibernateUtil.currentSession();
 			transaction = session.beginTransaction();
-			user = (User) session.get(User.class, login);
+			user = (User) session.get(User.class, username);
 
 			session.delete(user);
 			transaction.commit();

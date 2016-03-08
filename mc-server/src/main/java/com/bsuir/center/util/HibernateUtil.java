@@ -6,14 +6,17 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 public class HibernateUtil {
-	private static final String CONFIG_PATH = "hibernate/hibernate.cfg.xml";
+	private static final String HIBERNATE_CONFIG_PATH = "hibernate/hibernate.cfg.xml";
 
+	/**
+	 * 1 thread equal 1 session
+	 */
 	public static final ThreadLocal session = new ThreadLocal();
 	private static final SessionFactory sessionFactory;
 
 	static {
 		try {
-			sessionFactory = new Configuration().configure(CONFIG_PATH).buildSessionFactory();
+			sessionFactory = new Configuration().configure(HIBERNATE_CONFIG_PATH).buildSessionFactory();
 		} catch (HibernateException ex) {
 			throw new RuntimeException("Configuration problem: " + ex.getMessage(), ex);
 		}

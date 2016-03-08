@@ -5,18 +5,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bsuir.center.dao.IUserDao;
-import com.bsuir.center.domain.Album;
-import com.bsuir.center.domain.AlbumSong;
-import com.bsuir.center.domain.Song;
 import com.bsuir.center.domain.User;
 import com.bsuir.center.exception.DaoException;
-import com.bsuir.center.util.HibernateUtil;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 import java.util.List;
-
-import org.hibernate.Session;
 
 @Controller
 public class Handler {

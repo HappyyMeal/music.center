@@ -4,6 +4,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,6 +18,7 @@ import com.bsuir.center.exception.DaoException;
 @RestController
 @RequestMapping("v1/mucis/user")
 public class UserHandler {
+	private static final Logger logger = Logger.getLogger(UserHandler.class);
 
 	@Autowired
 	private IUserDao userDao;
@@ -26,26 +28,25 @@ public class UserHandler {
 		String createdLogin = null;
 
 		try {
-			createdLogin = userDao.create(user);
+			if (user != null)
+				createdLogin = userDao.create(user);
 		} catch (DaoException e) {
-			// TODO Log4j should be here due to lack of INET cannot currently
-			// download it.
+			logger.error("Can't create user due to DaoException.");
 		}
 
 		return createdLogin;
 	}
 
-	@RequestMapping(value = "/{login}", method = GET)
-	public User readUser(@PathVariable String login) {
+	@RequestMapping(value = "/{username}", method = GET)
+	public User readUser(@PathVariable String username) {
 
 		User user = null;
 
 		try {
-			user = userDao.read(login);
+			if (username != null)
+				user = userDao.read(username);
 		} catch (DaoException e) {
-			// TODO Log4j should be here due to lack of INET cannot currently
-			// download it.
-
+			logger.error("Can't read user due to DaoException.");
 		}
 
 		return user;
@@ -58,8 +59,7 @@ public class UserHandler {
 		try {
 			users = userDao.readAll();
 		} catch (DaoException e) {
-			// TODO Log4j should be here due to lack of INET cannot currently
-			// download it.
+			logger.error("Can't read all users due to DaoException.");
 		}
 
 		return users;
@@ -70,20 +70,20 @@ public class UserHandler {
 	public void update(@RequestBody User user) {
 
 		try {
-			userDao.update(user);
+			if (user != null)
+				userDao.update(user);
 		} catch (DaoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error("Can't update user due to DaoException.");
 		}
 	}
 
-	@RequestMapping(value = "/{login}", method = DELETE)
-	public void delete(@PathVariable String login) {
+	@RequestMapping(value = "/{username}", method = DELETE)
+	public void delete(@PathVariable String username) {
 		try {
-			userDao.delete(login);
+			if (username != null)
+				userDao.delete(username);
 		} catch (DaoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error("Can't delete user due to DaoException.");
 		}
 	}
 }

@@ -15,6 +15,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "user")
 public class User implements Serializable {
@@ -31,6 +33,7 @@ public class User implements Serializable {
 	@CreationTimestamp
 	private Date createdDate;
 
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "user")
 	private Set<Playlist> playlists = new HashSet<Playlist>(0);
 
@@ -71,6 +74,7 @@ public class User implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((userLogin == null) ? 0 : userLogin.hashCode());
+		result = prime * result + ((userPassword == null) ? 0 : userPassword.hashCode());
 		return result;
 	}
 
@@ -87,6 +91,11 @@ public class User implements Serializable {
 			if (other.userLogin != null)
 				return false;
 		} else if (!userLogin.equals(other.userLogin))
+			return false;
+		if (userPassword == null) {
+			if (other.userPassword != null)
+				return false;
+		} else if (!userPassword.equals(other.userPassword))
 			return false;
 		return true;
 	}
