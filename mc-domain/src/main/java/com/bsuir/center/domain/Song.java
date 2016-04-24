@@ -1,18 +1,12 @@
 package com.bsuir.center.domain;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Table
@@ -33,13 +27,7 @@ public class Song implements Serializable {
 
 	@Column(name = "song_link")
 	private String songLink;
-
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "songs")
-	private Set<Playlist> playlists = new HashSet<Playlist>(0);
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.song", cascade = CascadeType.ALL)
-	private Set<AlbumSong> albumSongs = new HashSet<AlbumSong>(0);
-
+	
 	public Integer getSongId() {
 		return songId;
 	}
@@ -70,22 +58,6 @@ public class Song implements Serializable {
 
 	public void setSongLink(String songLink) {
 		this.songLink = songLink;
-	}
-
-	public Set<Playlist> getPlaylists() {
-		return playlists;
-	}
-
-	public void setPlaylists(Set<Playlist> playlists) {
-		this.playlists = playlists;
-	}
-
-	public Set<AlbumSong> getAlbumSongs() {
-		return albumSongs;
-	}
-
-	public void setAlbumSongs(Set<AlbumSong> albumSongs) {
-		this.albumSongs = albumSongs;
 	}
 
 	@Override

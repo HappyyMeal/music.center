@@ -121,12 +121,3 @@ body {
 	border-color: #eed3d7;
 	text-align: center;
 }
-
-.alert {
-	padding: 15px 35px 15px 15px;
-	margin-bottom: 20px;
-	color: #c09853;
-	background-color: #fcf8e3;
-	border: 1px solid #fbeed5;
-	border-radius: 4px;
-}

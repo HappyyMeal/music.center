@@ -1,16 +1,21 @@
 package com.bsuir.controller;
 
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.bsuir.center.dao.IPersonDao;
 import com.bsuir.center.dao.IUserDao;
-import com.bsuir.center.domain.User;
+import com.bsuir.center.domain.Artist;
+import com.bsuir.center.domain.Country;
+import com.bsuir.center.domain.Genre;
+import com.bsuir.center.domain.Person;
+import com.bsuir.center.domain.Sex;
 import com.bsuir.center.exception.DaoException;
-
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
-
-import java.util.List;
 
 @Controller
 public class Handler {
@@ -18,37 +23,38 @@ public class Handler {
 	@Autowired
 	private IUserDao userDao;
 
+	@Autowired
+	private IPersonDao personDao;
+
 	@RequestMapping(value = "/hey", method = GET)
 	public void main() {
+
+		Sex sex = new Sex();
+		sex.setSexId(1);
+		Genre genre = new Genre();
+		genre.setGenreId(1);
+
+		Country country = new Country();
+		country.setCountryId(1);
+
+		Artist artist = new Artist();
+		artist.setArtistId(27);
+		artist.setGenre(genre);
+		artist.setCountry(country);
+
+		Person person = new Person();
+		person.setArtistId(27);
+		person.setFirstName("White");
+		person.setLastName("Maula");
+		person.setArtist(artist);
+		person.setBirthday(new Date());
+		person.setSex(sex);
+
 		try {
-			List<User> users = userDao.readAll();
-			if (users != null) {
-				for (User user : users) {
-					System.out.println(user);
-				}
-			}
+			personDao.update(person);
 		} catch (DaoException e) {
-			System.out.println("Something goes wrong on the handler stage");
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		/*
-		 * Session session = HibernateUtil.currentSession();
-		 * session.beginTransaction();
-		 * 
-		 * Song song1 = new Song(); song1.setSongTitle("song");
-		 * song1.setSongDuration(1); song1.setSongLink("song");
-		 * 
-		 * Album album = session.get(Album.class, 4);
-		 * 
-		 * AlbumSong albumSong = new AlbumSong(); albumSong.setAlbum(album);
-		 * albumSong.setSong(song1); albumSong.setTrackNumber(3);
-		 * 
-		 * song1.getAlbumSongs().add(albumSong);
-		 * 
-		 * session.save(song1);
-		 * 
-		 * session.getTransaction().commit(); HibernateUtil.closeSession();
-		 */
 	}
 }

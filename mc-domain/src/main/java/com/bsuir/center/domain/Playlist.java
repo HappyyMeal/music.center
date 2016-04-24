@@ -30,7 +30,7 @@ public class Playlist implements Serializable {
 	@Column(name = "playlist_id", unique = true, nullable = false)
 	private Integer playlistId;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "user_login")
 	private User user;
 
@@ -41,10 +41,9 @@ public class Playlist implements Serializable {
 	@CreationTimestamp
 	private Date createdTimestamp;
 
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "playlist_song", joinColumns = {
-			@JoinColumn(name = "playlist_id", nullable = false, updatable = false) }, inverseJoinColumns = {
-					@JoinColumn(name = "song_id", nullable = false, updatable = false) })
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name = "playlist_song", joinColumns = { @JoinColumn(name = "playlist_id", nullable = false, updatable = true) }, inverseJoinColumns = {
+			@JoinColumn(name = "song_id", nullable = false, updatable = true) })
 	private Set<Song> songs = new HashSet<Song>(0);
 
 	public Integer getPlaylistId() {

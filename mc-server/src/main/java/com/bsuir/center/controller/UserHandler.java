@@ -16,7 +16,7 @@ import com.bsuir.center.domain.User;
 import com.bsuir.center.exception.DaoException;
 
 @RestController
-@RequestMapping("v1/mucis/user")
+@RequestMapping("v1/music/user")
 public class UserHandler {
 	private static final Logger logger = Logger.getLogger(UserHandler.class);
 

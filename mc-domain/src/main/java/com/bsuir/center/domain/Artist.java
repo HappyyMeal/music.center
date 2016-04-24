@@ -11,7 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -34,12 +33,6 @@ public class Artist implements Serializable {
 
 	@Column(name = "artist_site_url")
 	private String artistSiteUrl;
-
-	@OneToOne(fetch = FetchType.EAGER, mappedBy = "artist", cascade = CascadeType.ALL)
-	private Group group;
-
-	@OneToOne(fetch = FetchType.EAGER, mappedBy = "artist", cascade = CascadeType.ALL)
-	private Person person;
 
 	public Integer getArtistId() {
 		return artistId;
@@ -71,22 +64,6 @@ public class Artist implements Serializable {
 
 	public void setArtistSiteUrl(String artistSiteUrl) {
 		this.artistSiteUrl = artistSiteUrl;
-	}
-
-	public Group getGroup() {
-		return group;
-	}
-
-	public void setGroup(Group group) {
-		this.group = group;
-	}
-
-	public Person getPerson() {
-		return person;
-	}
-
-	public void setPerson(Person person) {
-		this.person = person;
 	}
 
 	@Override

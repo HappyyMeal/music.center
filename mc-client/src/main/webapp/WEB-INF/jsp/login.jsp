@@ -4,19 +4,31 @@
 <!DOCTYPE html>
 <html>
 <head>
+<head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<title>Login page</title>
 <link rel="stylesheet"
 	href="${pageContext.servletContext.contextPath}/resources/css/css.css" />
 <link rel="stylesheet"
 	href="${pageContext.servletContext.contextPath}/resources/css/bootstrap.min.css" />
-<title>Login</title>
+<link rel="stylesheet"
+	href="${pageContext.servletContext.contextPath}/resources/css/font-awesome.min.css"
+	rel="stylesheet" />
+<link rel="stylesheet"
+	href="${pageContext.servletContext.contextPath}/resources/css/style.css" />
 </head>
 <body>
 
-	<c:if test="${loginFailed}">
+	<c:if test="${error != null}">
 		<div class="alert alert-danger">
-			<strong>Ошибка!</strong> Проверьте информацию, которую вы используете
-			для ввода. Имя пользователя или пароль узаканы неверно.
+			<strong>Ошибка!</strong> ${error}
+		</div>
+	</c:if>
+
+	<c:if test="${success != null}">
+		<div class="alert alert-success" role="alert">
+			<strong>Ура!</strong> ${success}.
 		</div>
 	</c:if>
 

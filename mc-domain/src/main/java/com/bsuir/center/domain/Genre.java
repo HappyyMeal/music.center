@@ -19,7 +19,7 @@ public class Genre implements Serializable {
 	private Integer genreId;
 
 	@Column(name = "genre_name", unique = true, nullable = false, length = 50)
-	private String countryName;
+	private String genreName;
 
 	public Integer getGenreId() {
 		return genreId;
@@ -29,19 +29,19 @@ public class Genre implements Serializable {
 		this.genreId = genreId;
 	}
 
-	public String getCountryName() {
-		return countryName;
+	public String getGenreName() {
+		return genreName;
 	}
 
-	public void setCountryName(String countryName) {
-		this.countryName = countryName;
+	public void setGenreName(String genreName) {
+		this.genreName = genreName;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((countryName == null) ? 0 : countryName.hashCode());
+		result = prime * result + ((genreName == null) ? 0 : genreName.hashCode());
 		result = prime * result + ((genreId == null) ? 0 : genreId.hashCode());
 		return result;
 	}
@@ -55,10 +55,10 @@ public class Genre implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Genre other = (Genre) obj;
-		if (countryName == null) {
-			if (other.countryName != null)
+		if (genreName == null) {
+			if (other.genreName != null)
 				return false;
-		} else if (!countryName.equals(other.countryName))
+		} else if (!genreName.equals(other.genreName))
 			return false;
 		if (genreId == null) {
 			if (other.genreId != null)
@@ -70,6 +70,6 @@ public class Genre implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Genre [genreId=" + genreId + ", countryName=" + countryName + "]";
+		return "Genre [genreId=" + genreId + ", genreName=" + genreName + "]";
 	}
 }

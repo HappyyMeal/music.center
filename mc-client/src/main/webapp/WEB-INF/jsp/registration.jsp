@@ -1,4 +1,5 @@
 <%@ page pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html">
 <html>
 <head>
@@ -10,6 +11,13 @@
 <title>Registration</title>
 </head>
 <body>
+
+	<c:if test="${error != null}">
+		<div class="alert alert-danger">
+			<strong>Ошибка!</strong> ${error}
+		</div>
+	</c:if>
+
 	<div class="login-page">
 		<div class="form">
 			<form class="login-form" action="/mc-client/user/registration"
@@ -23,6 +31,7 @@
 					<button id="btnSubmit" type="submit">зарегистрироваться</button>
 				</fieldset>
 			</form>
+			<a href="/mc-client/user/login"><button id="btnSubmit" type="submit">домой</button></a>
 		</div>
 	</div>
 

@@ -19,25 +19,55 @@ audio, canvas, video {
 }
 
 audio
+
+
+
+
 :not
+
+
  
+
+
 (
 [
 controls
 ]
+
+
  
+
+
 )
 {
 display
-:
- 
-none
-;
 
-	
-height
+
+
+
 :
+
+
  
+
+
+none
+
+
+
+
+;
+height
+
+
+
+
+:
+
+
+ 
+
+
 0;
 }
 [hidden] {
@@ -127,20 +157,42 @@ img {
 }
 
 svg
+
+
+
+
 :not
+
+
  
+
+
 (
 :root
+
+
  
+
+
 )
 {
 overflow
+
+
+
+
 :
+
+
  
+
+
 hidden
+
+
+
+
 ;
-
-
 }
 figure {
 	margin: 0;
@@ -694,8 +746,8 @@ pre code {
 
 @media ( min-width : 768px) {
 	.row {
-		margin-right: -15px;
-		margin-left: -15px;
+		/* margin-right: 25%; */
+		
 	}
 }
 
@@ -1275,7 +1327,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 
 .form-control {
 	display: block;
-	width: 100%;
+	width: 50%;
 	height: 34px;
 	padding: 6px 12px;
 	font-size: 14px;
@@ -1564,6 +1616,9 @@ textarea.input-lg, textarea.input-sm {
 	color: #ffffff;
 	background-color: #474949;
 	border-color: #474949;
+	/* margin-top: 50px;
+	width: 50%;
+	height: 56px; */
 }
 
 .btn-default:hover, .btn-default:focus, .btn-default:active,
@@ -1726,6 +1781,8 @@ textarea.input-lg, textarea.input-sm {
 	font-size: 18px;
 	line-height: 1.33;
 	border-radius: 6px;
+	margin: 20px;
+	width: 80%;
 }
 
 .btn-sm, .btn-xs {
@@ -1803,51 +1860,123 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 }
 
 .input-group-addon
-:not
- 
-(
-:first-child
- 
-)
-:not
- 
-(
-:last-child
- 
-),
-.input-group-btn
-:not
- 
-(
-:first-child
- 
-)
-:not
- 
-(
-:last-child
- 
-),
-.input-group
- 
-.form-control
+
+
+
+
 :not
 
-	
+
+ 
+
+
 (
 :first-child
+
+
  
+
+
 )
 :not
+
+
  
+
+
 (
 :last-child
+
+
  
+
+
+),
+.input-group-btn
+
+
+
+
+:not
+
+
+ 
+
+
+(
+:first-child
+
+
+ 
+
+
+)
+:not
+
+
+ 
+
+
+(
+:last-child
+
+
+ 
+
+
+),
+.input-group
+
+
+ 
+
+
+.form-control
+
+
+
+
+:not
+
+
+
+	
+
+
+(
+:first-child
+
+
+ 
+
+
+)
+:not
+
+
+ 
+
+
+(
+:last-child
+
+
+ 
+
+
 )
 {
 border-radius
+
+
+
+
 :
+
+
  
+
+
 0;
 }
 .input-group-addon, .input-group-btn {
@@ -1890,48 +2019,108 @@ border-radius
 }
 
 .input-group
+
+
  
+
+
 .form-control
+
+
+
+
 :first-child
 ,
 .input-group-addon
+
+
+
+
 :first-child
 ,
 .input-group-btn
+
+
+
+
 :first-child
 >
 .btn
 ,
 .input-group-btn
+
+
+
+
 :first-child
 >
 .dropdown-toggle
 ,
 .input-group-btn
+
+
+
+
 :last-child
 >
 .btn
+
+
+
+
 :not
+
+
  
+
+
 (
 :last-child
+
+
  
+
+
 )
 :not
+
+
  
+
+
 (
 .dropdown-toggle
 
+
+
 	
+
+
 )
 {
 border-top-right-radius
+
+
+
+
 :
+
+
  
+
+
 0;
 border-bottom-right-radius
+
+
+
+
 :
+
+
  
+
+
 0;
 }
 .input-group-addon:first-child {
@@ -1939,41 +2128,93 @@ border-bottom-right-radius
 }
 
 .input-group
+
+
  
+
+
 .form-control
+
+
+
+
 :last-child
 ,
 .input-group-addon
+
+
+
+
 :last-child
 ,
 .input-group-btn
+
+
+
+
 :last-child
 >
 .btn
 ,
 .input-group-btn
+
+
+
+
 :last-child
 >
 .dropdown-toggle
 ,
 .input-group-btn
+
+
+
+
 :first-child
 >
 .btn
+
+
+
+
 :not
+
+
  
+
+
 (
 :first-child
+
+
  
+
+
 )
 {
 border-bottom-left-radius
+
+
+
+
 :
+
+
  
+
+
 0;
 border-top-left-radius
+
+
+
+
 :
+
+
  
+
+
 0;
 }
 .input-group-addon:last-child {
@@ -2972,29 +3213,65 @@ button.close {
 .btn-group
 >
 .btn
+
+
+
+
 :not
+
+
  
+
+
 (
 :first-child
+
+
  
+
+
 )
 :not
+
+
  
+
+
 (
 :last-child
+
+
  
+
+
 )
 :not
+
+
  
+
+
 (
 .dropdown-toggle
 
+
+
 	
+
+
 )
 {
 border-radius
+
+
+
+
 :
+
+
  
+
+
 0;
 }
 .btn-group>.btn:first-child {
@@ -3004,57 +3281,141 @@ border-radius
 .btn-group
 >
 .btn
+
+
+
+
 :first-child
+
+
+
+
 :not
+
+
  
+
+
 (
 :last-child
+
+
  
+
+
 )
 :not
+
+
  
+
+
 (
 .dropdown-toggle
+
+
  
+
+
 )
 {
 border-top-right-radius
+
+
+
+
 :
+
+
  
+
+
 0;
 border-bottom-right-radius
+
+
+
+
 :
+
+
  
+
+
 0;
 }
 .btn-group
 >
 .btn
+
+
+
+
 :last-child
+
+
+
+
 :not
+
+
  
+
+
 (
 :first-child
+
+
  
+
+
 ),
 .btn-group
 >
 .dropdown-toggle
+
+
+
+
 :not
 
+
+
 	
+
+
 (
 :first-child
+
+
  
+
+
 )
 {
 border-bottom-left-radius
+
+
+
+
 :
+
+
  
+
+
 0;
 border-top-left-radius
+
+
+
+
 :
+
+
  
+
+
 0;
 }
 .btn-group>.btn-group {
@@ -3119,64 +3480,168 @@ border-top-left-radius
 }
 
 .btn-group-vertical
+
+
  
+
+
 .btn
+
+
+
+
 :not
+
+
  
+
+
 (
 :first-child
+
+
  
+
+
 )
 :not
+
+
  
+
+
 (
 :last-child
+
+
  
+
+
 )
 {
 border-radius
+
+
+
+
 :
+
+
  
+
+
 0;
 }
 .btn-group-vertical
+
+
  
+
+
 .btn
+
+
+
+
 :first-child
+
+
+
+
 :not
+
+
  
+
+
 (
 :last-child
+
+
  
+
+
 )
 {
 border-bottom-right-radius
+
+
+
+
 :
+
+
  
+
+
 0;
 border-bottom-left-radius
+
+
+
+
 :
+
+
  
+
+
 0;
 }
 .btn-group-vertical
+
+
  
+
+
 .btn
+
+
+
+
 :last-child
+
+
+
+
 :not
+
+
  
+
+
 (
 :first-child
+
+
  
+
+
 )
 {
 border-top-right-radius
+
+
+
+
 :
+
+
  
+
+
 0;
 border-top-left-radius
+
+
+
+
 :
+
+
  
+
+
 0;
 }
 .btn-group-justified {
@@ -3751,8 +4216,8 @@ border-top-left-radius
 }
 
 .alert {
+	margin-top: 5px;
 	padding: 15px 35px 15px 15px;
-	margin-bottom: 20px;
 	color: #c09853;
 	background-color: #fcf8e3;
 	border: 1px solid #fbeed5;
@@ -4712,4 +5177,8 @@ th.visible-print, td.visible-print {
 	th.hidden-print, td.hidden-print {
 		display: none !important;
 	}
+}
+
+.marketing {
+	margin-right: 25%;
 }

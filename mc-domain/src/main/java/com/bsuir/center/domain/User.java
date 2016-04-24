@@ -2,20 +2,13 @@ package com.bsuir.center.domain;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "user")
@@ -32,10 +25,6 @@ public class User implements Serializable {
 	@Column(name = "created_date")
 	@CreationTimestamp
 	private Date createdDate;
-
-	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "user")
-	private Set<Playlist> playlists = new HashSet<Playlist>(0);
 
 	public String getUserLogin() {
 		return userLogin;
@@ -59,14 +48,6 @@ public class User implements Serializable {
 
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
-	}
-
-	public Set<Playlist> getPlaylists() {
-		return playlists;
-	}
-
-	public void setPlaylists(Set<Playlist> playlists) {
-		this.playlists = playlists;
 	}
 
 	@Override

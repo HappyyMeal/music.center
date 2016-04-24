@@ -1,4 +1,4 @@
-package com.bsuir.center.util;
+package com.bsuir.client.util;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -6,8 +6,8 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 @Configuration
-@PropertySource(value = { "classpath:rest-cfg.properties" })
-public class RestConfig {
+@PropertySource(value = { "classpath:rest-cfg.properties", "classpath:messages.properties" })
+public class AppConfig {
 
 	/*
 	 * PropertySourcesPlaceHolderConfigurer Bean only required for @Value("{}")
